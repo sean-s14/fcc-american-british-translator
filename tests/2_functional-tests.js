@@ -26,7 +26,7 @@ suite("Functional Tests", () => {
         );
         assert.equal(
           res.body.translation,
-          "counterclockwise Mrs. advice column cookie accessorize eon"
+          '<span class="highlight">counterclockwise</span> <span class="highlight">Mrs.</span> <span class="highlight">advice column</span> <span class="highlight">cookie</span> <span class="highlight">accessorize</span> <span class="highlight">eon</span>'
         );
         done();
       });

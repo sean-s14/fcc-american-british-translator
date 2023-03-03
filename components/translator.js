@@ -25,6 +25,10 @@ class Translator {
     })) {
       if (word.toLowerCase() === key.toLowerCase()) {
         const value_arr = value.split(" ");
+        // const new_value = `<span class="highlight">${value}</span>`/
+        value_arr[0] = '<span class="highlight">' + value_arr[0];
+        value_arr[value_arr.length - 1] =
+          value_arr[value_arr.length - 1] + "</span>";
         arr.splice(i, word.split(" ").length, ...value_arr);
         index = i - 1 + value_arr.length;
         if (modified !== undefined) {
@@ -58,9 +62,11 @@ class Translator {
 
       if (regex_american.test(word) && locale === locales[1]) {
         text_arr[i] = text_arr[i].replace(":", ".");
+        text_arr[i] = `<span class="highlight">${text_arr[i]}</span>`;
         continue;
       } else if (regex_british.test(word) && locale === locales[0]) {
         text_arr[i] = text_arr[i].replace(".", ":");
+        text_arr[i] = `<span class="highlight">${text_arr[i]}</span>`;
         continue;
       }
 
